@@ -38,7 +38,7 @@ def thread_function():
         pyautogui.click()
         time.sleep(interval)
 
-window = sg.Window('Python auto-clicker', layout)
+window = sg.Window('Авто-кликер', layout)
 
 while True:
     # positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
