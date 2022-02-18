@@ -59,7 +59,7 @@ while True:
         thread_stop = False
         setText("info", "Кликер запущен")
 
-        t = threading.Thread(target=thread_function, daemon=True)
+        t = threading.Thread(target=thread_function)
         t.start()
     elif event == 'Остановить':
         thread_stop = True
