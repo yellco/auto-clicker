@@ -3,6 +3,7 @@ import pyautogui
 import time
 import threading
 
+version = "0.0.1"
 # интервал в секундах
 interval = 3
 # Начальные данные
@@ -19,7 +20,8 @@ layout = [
           [sg.Text('Кликер не запущен.', key='info')],
           [sg.Button('Запустить'), sg.Button('Остановить')],
           [sg.Button('Получить координаты')],
-          [sg.Button('Выход')]
+          [sg.Button('Выход')],
+          [sg.Text(f'Версия приложения: {version}')]
 ]
 
 def thread_function():
