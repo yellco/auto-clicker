@@ -9,8 +9,11 @@ interval = 3
 # Начальные данные
 x,y = 0,0
 # количество срабатываний кликера
-num_to_start = 10
+num_to_start_def = 10
+num_to_start = num_to_start_def
+# Показатель необходимо ли останавливать поток
 thread_stop = False
+
 
 sg.theme('BluePurple')
 
@@ -18,7 +21,7 @@ layout = [
           [sg.Text('Координаты:')],
           [sg.Text('X:'), sg.Text(str(x),size=(15,1), key='-XOUT-'), sg.Text('Y:'), sg.Text(str(y), size=(15,1), key='-YOUT-')],
           [sg.Text('Кликер не запущен.', key='info')],
-          [sg.Text('', key='count')],
+          [sg.Text('', key='num_to_start')],
           [sg.Button('Запустить'), sg.Button('Остановить')],
           [sg.Button('Получить координаты')],
           [sg.Button('Выход')],
@@ -33,9 +36,13 @@ def thread_function():
     while True:
         print('thread_func')
 
+        setText("num_to_start", f"Осталось: {num_to_start}")
+
         num_to_start -= 1
         if thread_stop or not num_to_start:
             setText("info", "Кликер не запущен")
+            setText("num_to_start", "")
+            num_to_start = num_to_start_def
             return
 
         pyautogui.moveTo(x, y)
@@ -48,6 +55,7 @@ while True:
     event, values = window.read()
 
     if event == sg.WIN_CLOSED or event == 'Выход':
+        thread_stop = True
         break
     
     if event == 'Получить координаты':
