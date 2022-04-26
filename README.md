@@ -17,7 +17,7 @@
 virtualenv .venv && source .venv/bin/activate && pip install -r requirements.txt
 ```
 
-3) Скопировать файл /deploy/.env-copy в /env
+3) Скопировать файл /deploy/.env-copy в /.env
 
 4) Запустить файл clicker.py:
 ```sh
