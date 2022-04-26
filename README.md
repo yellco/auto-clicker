@@ -1,6 +1,6 @@
 # auto-clicker
 
-![Простой авто-кликер на питоне c интерфейсом](https://raw.githubusercontent.com/yellco/auto-clicker/master/screenshot.jpg)
+![Простой авто-кликер на питоне c интерфейсом](https://raw.githubusercontent.com/yellco/auto-clicker/master/screenshot.jpeg)
 
 ## Инструкция по использованию
 
@@ -8,12 +8,20 @@
 
 2) Запуск авто-кликера нажатием кнопки "Запустить". Доступна остановка кликера нажатием кнопки "Остановить"
 
-Примечание: интервал кликов и количество кликов в версии 0.0.1 устанавливается только в коде приложения.
-
 ## Инструкция по разворачиванию
 
 1) Необходима версия python >= 3.5. При необходимости установить ее
 
-2) Установить зависимости из файла requirements.txt
+2) Установить виртуальное окружение и зависимости из файла requirements.txt:
+```sh
+virtualenv .venv && source .venv/bin/activate && pip install -r requirements.txt
+```
 
-3) Запустить файл clicker.py
+3) Скопировать файл /deploy/.env-copy в /env
+
+4) Запустить файл clicker.py:
+```sh
+python clicker.py
+```
+
+***Примечание: инструкция актуальна для версии 0.1.0***
