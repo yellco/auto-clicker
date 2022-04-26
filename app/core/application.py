@@ -28,7 +28,7 @@ class Application():
 
     def setText(self, el, text):
         self.window.Element(el).Update(text)
-    
+
     def thread_function(self):
         while True:
             self.setText("count", f"Осталось: {self.count}")
@@ -46,7 +46,7 @@ class Application():
 
     def start(self):
         sg.theme("BluePurple")
-        self.window = sg.Window(self.env_vars.get("app_name"), 
+        self.window = sg.Window(self.env_vars.get("app_name"),
             [
                 [sg.TabGroup([[
                     sg.Tab("Главная", get_layout(self, "main_layout")),
@@ -63,7 +63,7 @@ class Application():
             if event == sg.WIN_CLOSED or event == "Выход":
                 thread_stop = True
                 break
-            
+
             if event == "Получить координаты":
                 xpos, ypos = pyautogui.position()
                 self.x, self.y = xpos, ypos
@@ -89,5 +89,5 @@ class Application():
                 self.interval = self.defaults["interval_input"]
                 self.count = self.defaults["count_input"]
                 self.window["interval_input"].update(self.interval)
-                self.window["count_input"].update(self.count)        
+                self.window["count_input"].update(self.count)
         self.window.close()

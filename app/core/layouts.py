@@ -20,9 +20,9 @@ def get_layout(self, name):
 
     # Экран настроек
     settings_layout = [
-        [sg.Text("Введите количество срабатываний")], 
+        [sg.Text("Введите количество срабатываний")],
         [sg.Input(key="count_input", default_text=self.defaults.get("count_input"))],
-        [sg.Text("Введите интервал срабатываний")], 
+        [sg.Text("Введите интервал срабатываний")],
         [sg.Input(key="interval_input", default_text=self.defaults.get("interval_input"))],
         [sg.Button("Сохранить"), sg.Button("Отмена")]
     ]

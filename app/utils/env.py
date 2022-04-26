@@ -7,5 +7,5 @@ def load_env(dotenv_path):
     """
     if os.path.exists(dotenv_path):
         load_dotenv(dotenv_path)
-    
+
     return dict(os.environ)
