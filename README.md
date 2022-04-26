@@ -1,6 +1,6 @@
 # auto-clicker
 
-![Простой авто-кликер на питоне c интерфейсом](https://raw.githubusercontent.com/yellco/auto-clicker/master/screenshot.jpg)
+![Простой авто-кликер на питоне c интерфейсом](https://raw.githubusercontent.com/yellco/auto-clicker/master/screenshot.jpeg)
 
 ## Инструкция по использованию
 
