@@ -10,18 +10,18 @@
 
 ## Инструкция по разворачиванию
 
-1) Необходима версия python >= 3.5. При необходимости установить ее
+1) Необходима версия python = 3.9. Также необходим установленный poetry
 
-2) Установить виртуальное окружение и зависимости из файла requirements.txt:
+2) Скопировать файл /deploy/.env-copy в /.env
+
+3) Установить все зависимости:
 ```sh
-virtualenv .venv && source .venv/bin/activate && pip install -r requirements.txt
+poetry install
 ```
 
-3) Скопировать файл /deploy/.env-copy в /.env
-
-4) Запустить файл clicker.py:
+4) Запустить файл main.py:
 ```sh
-python clicker.py
+poetry run python main.py
 ```
 
-***Примечание: инструкция актуальна для версии 0.1.0***
+***Примечание: инструкция актуальна для версии 0.1.1***
