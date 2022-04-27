@@ -13,6 +13,4 @@ def main():
 	Application(env_vars).start()
 
 if __name__ == "__main__":
-	if not os.path.exists("./.env"):
-		raise FileNotFoundError("Отсутствие .env файла")
 	main()
