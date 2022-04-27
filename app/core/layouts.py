@@ -1,11 +1,16 @@
 import PySimpleGUI as sg
 
 def get_layout(self, name):
+    "Получение layout по имени"
+
     # Главный экран
     main_layout = [
         [sg.Text("Кликер не запущен.", key="info")],
         [sg.Text("Координаты:")],
-        [sg.Text("X:"), sg.Text(str(self.x),size=(15,1), key="-XOUT-"), sg.Text("Y:"), sg.Text(str(self.y), size=(15,1), key="-YOUT-")],
+        [
+            sg.Text("X:"), sg.Text(str(self.x_coord),size=(15,1), key="-XOUT-"),
+            sg.Text("Y:"), sg.Text(str(self.y_coord), size=(15,1), key="-YOUT-")
+        ],
         [sg.Text("", key="count")],
         [sg.Button("Запустить"), sg.Button("Остановить")],
         [sg.Button("Получить координаты")],
@@ -14,8 +19,8 @@ def get_layout(self, name):
 
     # Информационный экран
     info_layout = [
-        [sg.Text(f"Версия приложения: {self.env_vars.get('app-version')}")],
-        [sg.Text(f"Создано: Yellco в 2022 году")]
+        [sg.Text(f"Версия приложения: {self.env_vars.get('app_version')}")],
+        [sg.Text("Создано: Yellco в 2022 году")]
     ]
 
     # Экран настроек
