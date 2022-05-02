@@ -19,9 +19,9 @@
 poetry install
 ```
 
-4) Запустить файл main.py:
+4) Запустить приложение:
 ```sh
-poetry run python main.py
+poetry run app
 ```
 
 ***Примечание: инструкция актуальна для версии 0.1.1***
