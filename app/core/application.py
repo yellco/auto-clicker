@@ -6,7 +6,8 @@ import PySimpleGUI as sg
 
 from .layouts import get_layout
 
-class Application():
+
+class Application:
 	"""
 	Основной класс приложения
 	"""
@@ -14,7 +15,7 @@ class Application():
 
 	interval = 3
 	# Начальные данные
-	x_coord,y_coord = 0,0
+	x_coord, y_coord = 0, 0
 	# количество срабатываний кликера
 	count_def = 10
 	count = count_def
@@ -55,14 +56,15 @@ class Application():
 	def start(self):
 		"Запуск кликера"
 		sg.theme("BluePurple")
-		self.window = sg.Window(self.env_vars.get("app_name"),
+		self.window = sg.Window(
+			self.env_vars.get("app_name"),
 			[
 				[sg.TabGroup([[
 					sg.Tab("Главная", get_layout(self, "main_layout")),
 					sg.Tab("Настройки", get_layout(self, "settings_layout")),
 					sg.Tab("Информация", get_layout(self, "info_layout"))
 				]],
-				key="-TAB GROUP-", expand_x=False, expand_y=False)]
+					key="-TAB GROUP-", expand_x=False, expand_y=False)]
 			]
 		)
 
@@ -88,8 +90,11 @@ class Application():
 				self.thread_stop = True
 				self.set_text("info", "Кликер не запущен")
 			elif event == "Сохранить":
-				interval = "".join(re.findall("[0-9]+", values.get("interval_input")) if values.get("interval_input") not in (None, "") else 0)
-				count = "".join(re.findall("[0-9]+", values.get("count_input")) if values.get("count_input") not in (None, "") else 0)
+				interval = "".join(
+					re.findall("[0-9]+", values.get("interval_input")) if values.get("interval_input") not in (
+						None, "") else 0)
+				count = "".join(re.findall("[0-9]+", values.get("count_input")) if values.get("count_input") not in (
+					None, "") else 0)
 				self.interval = int(interval)
 				self.count = int(count)
 				self.window["interval_input"].update(self.interval)

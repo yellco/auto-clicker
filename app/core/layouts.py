@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 
+
 def get_layout(self, name):
     "Получение layout по имени"
 

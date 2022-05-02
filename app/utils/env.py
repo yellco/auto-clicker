@@ -11,5 +11,5 @@ def load_env(dotenv_path):
         raise FileNotFoundError("Отсутствие .env файла")
 
     # Приведение к нижнему регистру
-    env_lower = {key.lower():dict(os.environ).get(key) for key in dict(os.environ)}
+    env_lower = {key.lower(): dict(os.environ).get(key) for key in dict(os.environ)}
     return env_lower
