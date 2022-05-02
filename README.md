@@ -1,5 +1,5 @@
 # auto-clicker
-
+Приложение для автоматического совершения постоянных кликов через определенный интервал на python.
 ![Простой авто-кликер на питоне c интерфейсом](https://raw.githubusercontent.com/yellco/auto-clicker/master/screenshot.jpeg)
 
 ## Инструкция по использованию
