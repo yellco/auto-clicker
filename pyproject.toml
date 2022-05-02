@@ -3,6 +3,9 @@ name = "auto-clicker"
 version = "0.1.0"
 description = "Simple python auto-clicker"
 authors = ["Yellco <dazheltyy@gmail.com>"]
+packages = [
+    { include = "main.py" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -15,3 +18,6 @@ PyAutoGUI = "^0.9.53"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+app = 'main:main'
