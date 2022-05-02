@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+
 def load_env(dotenv_path):
     """
     Подгрузка переменных окружения из файла .env

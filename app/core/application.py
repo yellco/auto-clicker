@@ -38,7 +38,9 @@ class Application:
 		self.env_vars = env_vars
 
 	def set_text(self, element, text):
-		"Установка текста"
+		"""
+		Установка текста
+		"""
 		self.window.Element(element).Update(text)
 
 	def thread_function(self):
@@ -61,7 +63,9 @@ class Application:
 			time.sleep(self.interval)
 
 	def start(self):
-		"Запуск кликера"
+		"""
+		Запуск кликера
+		"""
 
 		self.gui.theme("BluePurple")
 
