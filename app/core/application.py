@@ -2,7 +2,7 @@ import threading
 import time
 import re
 import pyautogui
-import PySimpleGUI as sg
+import PySimpleGUI
 
 from .layouts.infolayout import InfoLayout
 from .layouts.settingslayout import SettingsLayout
@@ -26,8 +26,8 @@ class Application:
 	thread_stop = False
 	# Список вкладок
 	tabs_group = []
-	# Привязываем sg к экземпляру
-	gui = sg
+	# Привязываем PySimpleGUI к экземпляру
+	gui = PySimpleGUI
 
 	defaults = {
 		"count_input": count,
@@ -90,16 +90,13 @@ class Application:
 			if event == self.gui.WIN_CLOSED or event == "Выход":
 				self.thread_stop = True
 				break
-
-			if event == "Получить координаты":
-				xpos, ypos = pyautogui.position()
-				self.x_coord, self.y_coord = xpos, ypos
+			elif event == "Получить координаты":
+				self.x_coord, self.y_coord = pyautogui.position()
 				self.window["-XOUT-"].update(self.x_coord)
 				self.window["-YOUT-"].update(self.y_coord)
 			elif event == "Запустить":
 				self.thread_stop = False
 				self.set_text("info", "Кликер запущен")
-
 				addit_thread = threading.Thread(target=self.thread_function)
 				addit_thread.start()
 			elif event == "Остановить":
