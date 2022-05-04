@@ -2,6 +2,9 @@ from .baselayout import BaseLayout
 
 
 class InfoLayout(BaseLayout):
+	"""
+	Информационная вкладка
+	"""
 	def __init__(self, name, tab_name, app_data):
 		super().__init__(app_data=app_data)
 		self.layout = [
