@@ -66,7 +66,6 @@ class Application:
 		"""
 		Запуск кликера
 		"""
-
 		self.gui.theme("BluePurple")
 
 		# Создание layout и добавление к вкладкам

@@ -1,4 +1,7 @@
 class BaseLayout:
+	"""
+	Базовый класс layout
+	"""
 	# Разметка layout
 	layout = None
 	# Название layout
@@ -12,4 +15,7 @@ class BaseLayout:
 		self.app_data = app_data
 
 	def create_tab(self):
+		"""
+		Создание вкладки
+		"""
 		return self.app_data.gui.Tab(self.tab_name, self.layout)
