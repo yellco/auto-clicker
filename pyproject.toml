@@ -12,6 +12,7 @@ python = "^3.9"
 python-dotenv = "^0.20.0"
 PySimpleGUI = "^4.59.0"
 PyAutoGUI = "^0.9.53"
+pytest-cov = "^3.0.0"
 
 [tool.poetry.dev-dependencies]
 
