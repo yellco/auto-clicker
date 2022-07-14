@@ -3,6 +3,7 @@ import time
 import re
 import pyautogui
 import PySimpleGUI
+import mouse
 
 from .layouts.infolayout import InfoLayout
 from .layouts.settingslayout import SettingsLayout
@@ -38,6 +39,15 @@ class Application:
 
     def __init__(self, env_vars):
         self.env_vars = env_vars
+
+    def get_coord(self, event):
+        """
+        Получение координат по клику
+        """
+        self.x_coord, self.y_coord = mouse.get_position()
+        self.window["-XOUT-"].update(self.x_coord)
+        self.window["-YOUT-"].update(self.y_coord)
+        mouse.unhook_all()
 
     def set_text(self, element, text):
         """
@@ -94,9 +104,7 @@ class Application:
                 self.thread_stop = True
                 break
             elif event == "Получить координаты":
-                self.x_coord, self.y_coord = pyautogui.position()
-                self.window["-XOUT-"].update(self.x_coord)
-                self.window["-YOUT-"].update(self.y_coord)
+                mouse.on_click(self.get_coord, args=('mouse_left',))
             elif event == "Запустить":
                 self.thread_stop = False
                 self.set_text("info", "Кликер запущен")
