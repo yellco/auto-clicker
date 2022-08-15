@@ -1,9 +1,16 @@
 
-import os, sys
+import os
+import sys
 import argparse
 from app.utils.env import load_env
 from app.core.application import Application
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+
+base_path = os.path.dirname(__file__)
+dotenv_path = os.path.join(base_path, '.env')
+
+
+def gif_path():
+	return os.path.join(base_path, 'resources')
 
 
 def parse_args():
@@ -30,7 +37,8 @@ def main():
 			y_coord=args.y,
 			interval=args.interval,
 			count_def=args.count_def,
-			start=args.start
+			start=args.start,
+			img_path=gif_path()
 		).start_app()
 	except KeyboardInterrupt:
 		sys.exit()

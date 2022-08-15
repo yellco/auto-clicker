@@ -4,6 +4,7 @@ import re
 import pyautogui
 import PySimpleGUI
 import mouse
+import os
 
 from .layouts.infolayout import InfoLayout
 from .layouts.settingslayout import SettingsLayout
@@ -40,7 +41,7 @@ class Application:
         "interval_input": interval
     }
 
-    def __init__(self, env_vars, x_coord=None, y_coord=None, interval=None, count_def=None, start=False):
+    def __init__(self, env_vars, img_path, x_coord=None, y_coord=None, interval=None, count_def=None, start=False):
         self.env_vars = env_vars
         if x_coord:
             self.x_coord = x_coord
@@ -55,6 +56,8 @@ class Application:
             self.defaults["count_input"] = count_def
         if start:
             self.start_by_arg = start
+        self.start_img_path = os.path.join(img_path, "start.png")
+        self.stop_img_path = os.path.join(img_path, "stop.png")
 
     def get_coord(self, event):
         """
@@ -76,10 +79,12 @@ class Application:
         self.set_text("info", "Кликер запущен")
         addit_thread = threading.Thread(target=self.thread_function)
         addit_thread.start()
+        self.window.Element("image").Update(self.start_img_path)
 
     def stop_clicker(self):
         self.thread_stop = True
         self.set_text("info", "Кликер не запущен")
+        self.window.Element("image").Update(self.stop_img_path)
 
     def thread_function(self):
         """
@@ -94,6 +99,7 @@ class Application:
 
             if self.thread_stop or not self.count:
                 self.set_text("info", "Кликер не запущен")
+                self.window.Element("image").Update(self.stop_img_path)
                 self.set_text("count", "")
                 self.count = self.count_def
                 return
@@ -111,7 +117,7 @@ class Application:
 
         # Создание layout и добавление к вкладкам
         for layout in [
-            MainLayout(tab_name="Главная", name="main_layout", app_data=self),
+            MainLayout(tab_name="Главная", name="main_layout", app_data=self, img_path=self.stop_img_path),
             SettingsLayout(tab_name="Настройки", name="settings_layout", app_data=self),
             InfoLayout(tab_name="Информация", name="info_layout", app_data=self)
         ]:

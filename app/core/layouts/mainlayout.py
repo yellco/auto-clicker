@@ -5,10 +5,10 @@ class MainLayout(BaseLayout):
 	"""
 	Главная вкладка кликера
 	"""
-	def __init__(self, name, tab_name, app_data):
+	def __init__(self, name, tab_name, app_data, img_path):
 		super().__init__(app_data=app_data)
 		self.layout = [
-			[app_data.gui.Text("Кликер не запущен.", key="info")],
+			[app_data.gui.Image(img_path, size=(50, 50), key="image"), app_data.gui.Text("Кликер не запущен.", key="info", font=('Arial', 12, 'bold'))],
 			[app_data.gui.Text("Координаты:")],
 			[
 				app_data.gui.Text("X:"), app_data.gui.Text(str(app_data.x_coord), size=(15, 1), key="-XOUT-"),
